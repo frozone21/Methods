@@ -9,14 +9,19 @@ namespace Methods
             //Ask the user their name 
             Console.WriteLine("Please enter your name");
 
-            //to handle input errors 
-            try
+
+
+
+          try
             {
                 //Read input from user 
                 string name = Console.ReadLine();
 
                 //Calling the method and using the user name 
                 User_Name(name);
+
+                isAllLetters(name);
+
             }
             catch
             {
@@ -34,6 +39,17 @@ namespace Methods
 
             //return value
             return get_name;
+        }
+        //to handle input errors 
+        public static bool isAllLetters(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsLetter(c))
+                    return false;
+                Console.WriteLine("This is an invalid input");
+            }
+            return true;
         }
     }
 }
